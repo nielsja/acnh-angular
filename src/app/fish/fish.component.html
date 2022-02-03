@@ -1,4 +1,27 @@
 <p>fish works!</p>
-<ul class="fishes">
-  <li *ngFor="let fish of fishes">{{ fish.name["name-USen"] }}</li>
-</ul>
+<mat-grid-list cols="4" rowHeight="1:2">
+  <mat-grid-tile *ngFor="let fish of allFish">
+    <mat-card
+      layout="row"
+      layout-align="space-around center"
+      class="card-container"
+    >
+      <mat-card-title class="full-width center">{{
+        fish.name["name-USen"]
+      }}</mat-card-title>
+      <img
+        mat-card-sm-image
+        src="{{ fish.icon_uri }}"
+        alt="{{ fish.name['name-USen'] }}"
+      />
+      <mat-card-content class="full-width center">
+        <mat-grid-list cols="3">
+          <mat-grid-tile class="month-tile" *ngFor="let month of months">
+            {{ month }}<br />
+            {{ fish.availability["month-array-northern"] ? "true" : "false" }}
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
