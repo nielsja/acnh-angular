@@ -1,27 +1,58 @@
 @use "sass:map";
 @use "@angular/material" as mat;
 
-$light-primary: mat.define-palette(mat.$indigo-palette);
-$light-accent: mat.define-palette(mat.$pink-palette);
-$light-primary-color: mat.get-color-from-palette($light-primary, 500);
-@debug "$light-primary-color" $light-primary-color;
+@use "bulma/bulma" as bulma;
 
-.fish-card {
-  width: 60%;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: $light-primary-color;
+$light-primary: mat.define-palette(mat.$indigo-palette);
+$light-primary-color: mat.get-color-from-palette($light-primary, 500);
+$light-primary-alt: mat.get-color-from-palette($light-primary, 200);
+
+$light-accent: mat.define-palette(mat.$pink-palette);
+$active-color: mat.get-color-from-palette($light-accent, 500);
+$inactive-color: mat.get-color-from-palette($light-accent, 200);
+
+$neutral-color: #ddd;
+
+// @debug "$light-primary-color" $light-primary-color;
+
+.active {
+  background-color: $active-color;
 }
 
+.inactive {
+  background-color: $inactive-color;
+}
 .full-width {
   width: 100%;
 }
 .center {
   align-items: center;
 }
+
+.fish-card {
+  width: 80%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: $neutral-color;
+}
+
+.card-section {
+  margin: 0.5rem 0rem;
+}
+
+.availability-tile {
+  background-color: $light-primary-alt;
+}
+
 .month-tile {
   text-align: center;
+  font-size: 0.8rem;
+}
+
+.hours-tile {
+  text-align: center;
+  font-size: 0.5rem;
 }

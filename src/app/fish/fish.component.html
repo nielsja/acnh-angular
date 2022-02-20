@@ -8,15 +8,58 @@
       <mat-card-title class="full-width center">{{ fish.name }}</mat-card-title>
       <img mat-card-sm-image src="{{ fish.imageUrl }}" alt="{{ fish.name }}" />
       <mat-card-content class="full-width center">
-        <mat-grid-list cols="3">
-          <mat-grid-tile
-            class="month-tile"
-            *ngFor="let month of months; index as i"
-          >
-            {{ month }}<br />
-            {{ fish.monthsNorthern.get(i + 1) }}
-          </mat-grid-tile>
-        </mat-grid-list>
+        <!-- availability: months -->
+        <mat-card-content class="card-section">
+          <mat-card class="availability-tile">
+            <mat-grid-list cols="3" rowHeight="3:1" class="card-section">
+              <mat-grid-tile
+                class="month-tile
+              {{ fish.monthsNorthern.get(i + 1) ? 'active' : 'inactive' }}"
+                *ngFor="let month of months; index as i"
+              >
+                {{ displayMonthsMap.get(i + 1) }}<br />
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card>
+        </mat-card-content>
+
+        <!-- availability: hours -->
+        <mat-card-content class="card-section">
+          <mat-card class="availability-tile">
+            <mat-grid-list cols="24" rowHeight="1:2" class="card-section">
+              <mat-grid-tile
+                class="hours-tile {{
+                  fish.time.get(i) ? 'active' : 'inactive'
+                }} "
+                *ngFor="let hour of hours; index as i"
+              >
+                {{ displayHours.includes(hour) ? hour : "" }}
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card>
+        </mat-card-content>
+
+        <!-- location -->
+        <mat-card-content class="card-section">
+          <mat-card class="availability-tile">
+            <div class="columns">
+              <div class="column">Location</div>
+              <div class="column">{{ fish.location }}</div>
+            </div>
+          </mat-card>
+        </mat-card-content>
+
+        <!-- shadow -->
+        <mat-card-content class="card-section">
+          <mat-card class="availability-tile">
+            <div class="columns">
+              <div class="column">Shadow</div>
+              <div class="column">{{ fish.shadow }}</div>
+            </div>
+          </mat-card>
+        </mat-card-content>
+
+        <!-- end of fish card -->
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>

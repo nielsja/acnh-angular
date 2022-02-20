@@ -5,6 +5,9 @@ export interface IFishDisplay {
   name: string;
   imageUrl: string;
   monthsNorthern: Map<number, boolean>;
+  time: Map<number, boolean>;
+  location: string;
+  shadow: string;
   // availability: {
   //   location: string;
   //   rarity: string;
@@ -54,6 +57,18 @@ export enum EFishShadow {
   Narrow = 'Narrow',
 }
 
+export const fishShadowMap = new Map<string, string>([
+  [EFishShadow.Tiny, 'Tiny'],
+  [EFishShadow.Xsmall, 'X-small'],
+  [EFishShadow.Small, 'Small'],
+  [EFishShadow.Medium, 'Medium'],
+  [EFishShadow.MediumFinned, 'Medium (finned)'],
+  [EFishShadow.Large, 'Large'],
+  [EFishShadow.Huge, 'Huge'],
+  [EFishShadow.HugeFinned, 'Huge (finned)'],
+  [EFishShadow.Narrow, 'Narrow'],
+]);
+
 export type FishRarity = 'Common' | 'Uncommon' | 'Rare' | 'Ultra-rare';
 
 export enum EFishRarity {
@@ -83,3 +98,14 @@ export enum EFishLocation {
   Sea = 'Sea',
   SeaPrecipitation = 'Sea (when raining or snowing)',
 }
+
+export const fishLocationMap = new Map<string, string>([
+  [EFishLocation.River, 'River'],
+  [EFishLocation.RiverClifftop, 'River (Clifftop)'],
+  [EFishLocation.RiverMouth, 'River (Mouth)'],
+  [EFishLocation.Pond, 'Pond'],
+  [EFishLocation.RiverClifftopPond, 'River (Clifftop) & Pond'],
+  [EFishLocation.Pier, 'Pier'],
+  [EFishLocation.Sea, 'Sea'],
+  [EFishLocation.SeaPrecipitation, 'Sea (when raining or snowing)'],
+]);
