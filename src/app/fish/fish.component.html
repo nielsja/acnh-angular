@@ -1,24 +1,20 @@
-<p>fish works!</p>
 <mat-grid-list cols="4" rowHeight="1:2">
-  <mat-grid-tile *ngFor="let fish of allFish">
+  <mat-grid-tile *ngFor="let fish of displayFish">
     <mat-card
       layout="row"
       layout-align="space-around center"
-      class="card-container"
+      class="card-container fish-card"
     >
-      <mat-card-title class="full-width center">{{
-        fish.name["name-USen"]
-      }}</mat-card-title>
-      <img
-        mat-card-sm-image
-        src="{{ fish.icon_uri }}"
-        alt="{{ fish.name['name-USen'] }}"
-      />
+      <mat-card-title class="full-width center">{{ fish.name }}</mat-card-title>
+      <img mat-card-sm-image src="{{ fish.imageUrl }}" alt="{{ fish.name }}" />
       <mat-card-content class="full-width center">
         <mat-grid-list cols="3">
-          <mat-grid-tile class="month-tile" *ngFor="let month of months">
+          <mat-grid-tile
+            class="month-tile"
+            *ngFor="let month of months; index as i"
+          >
             {{ month }}<br />
-            {{ fish.availability["month-array-northern"] ? "true" : "false" }}
+            {{ fish.monthsNorthern.get(i + 1) }}
           </mat-grid-tile>
         </mat-grid-list>
       </mat-card-content>

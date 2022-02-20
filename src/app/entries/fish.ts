@@ -1,5 +1,21 @@
 import { IAvailability, IName } from './interfaces';
 
+export interface IFishDisplay {
+  id: number;
+  name: string;
+  imageUrl: string;
+  monthsNorthern: Map<number, boolean>;
+  // availability: {
+  //   location: string;
+  //   rarity: string;
+  //   months: {
+  //     northern: Map<number, boolean>;
+  //     southern: Map<number, boolean>;
+  //   };
+  //   time: Map<number, boolean>;
+  // };
+}
+
 export interface IFish {
   id: number;
   'file-name': string;

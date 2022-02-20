@@ -1,3 +1,11 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+$light-primary: mat.define-palette(mat.$indigo-palette);
+$light-accent: mat.define-palette(mat.$pink-palette);
+$light-primary-color: mat.get-color-from-palette($light-primary, 500);
+@debug "$light-primary-color" $light-primary-color;
+
 .fish-card {
   width: 60%;
   align-items: center;
@@ -5,6 +13,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: $light-primary-color;
 }
 
 .full-width {
