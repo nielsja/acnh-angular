@@ -1,0 +1,8 @@
+<p>fish-card works!</p>
+FISH
+<div *ngIf="allFish$ | async as allFish">
+    <div *ngFor="let fish of allFish">
+
+        <p>{{fish.fishName}}</p>
+    </div>
+</div>
