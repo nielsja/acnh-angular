@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { FishService } from '../fish/fish.service';
 import { IFish } from '../fish/IFish';
@@ -9,7 +9,7 @@ import { IFish } from '../fish/IFish';
   styleUrls: ['./fish-card.component.scss']
 })
 export class FishCardComponent implements OnInit {
-
+  @Input() fish!: IFish;
   constructor() { }
 
   ngOnInit() {
