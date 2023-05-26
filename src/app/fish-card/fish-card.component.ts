@@ -9,14 +9,11 @@ import { IFish } from '../fish/IFish';
   styleUrls: ['./fish-card.component.scss']
 })
 export class FishCardComponent implements OnInit {
-  allFish$!: Observable<IFish[]>;
-  allFish: IFish[] = [];
 
-  constructor(private fishService: FishService) { }
+  constructor() { }
 
   ngOnInit() {
 
-    this.allFish$ = this.fishService.getAllFish();
   }
 
 }
