@@ -1,1 +1,9 @@
-<p>fish-page works!</p>
+<div class="container text-center" *ngIf="allFish$ | async as fishies">
+    <div class="row">
+        <ng-container *ngFor="let fish of fishies">
+            <div class="col-sm-10 col-md-6 col-lg-4">
+                <app-fish-card [fish]="fish"></app-fish-card>
+            </div>
+        </ng-container>
+    </div>
+</div>

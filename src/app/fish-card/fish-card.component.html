@@ -1,8 +1,11 @@
-<p>fish-card works!</p>
-FISH
-<div *ngIf="allFish$ | async as allFish">
-    <div *ngFor="let fish of allFish">
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="card-title">
+            {{ fish.fishName }}
+        </div>
+        <div class="card-text">{{ fish.fishId }}
+            <input type="checkbox" class="form-check-input">
 
-        <p>{{fish.fishName}}</p>
+        </div>
     </div>
 </div>
